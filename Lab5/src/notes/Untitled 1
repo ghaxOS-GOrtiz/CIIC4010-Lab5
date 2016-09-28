@@ -1,0 +1,12 @@
+ Sometimes when you click on an initially white cell, it does not change color.
+ Modify the code until it always changes color upon each click, then paste the
+ whole MyMouseAdapter class inside the slashes below.
+ (Note: This does not apply to cells that are initially gray.)
+ Warning: When comparing color objects, make sure to use .equals(...)
+ instead of ==. (This is the same as with strings!) For example:
+            Color C1 = new Color(0x964B00);   //Brown (simple.wikipedia.org/wiki/List_of_colors)
+            Color C2 = new Color(0x964B00);   //Brown (simple.wikipedia.org/wiki/List_of_colors)
+            if (C1.equals(C2)) {
+                        System.out.println(“Yes, they represent the same color.”);
+            }
+            //Note that C1==C2 would be false, because they are different objects.
