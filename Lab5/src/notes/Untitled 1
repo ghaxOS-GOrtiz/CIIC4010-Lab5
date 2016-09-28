@@ -7,6 +7,12 @@
             Color C1 = new Color(0x964B00);   //Brown (simple.wikipedia.org/wiki/List_of_colors)
             Color C2 = new Color(0x964B00);   //Brown (simple.wikipedia.org/wiki/List_of_colors)
             if (C1.equals(C2)) {
-                        System.out.println(“Yes, they represent the same color.”);
+                        System.out.println("Yes, they represent the same color.");
             }
             //Note that C1==C2 would be false, because they are different objects.
+            
+Exercise 3:
+Modify the application so that when the user clicks on one of the initially gray cells on the leftmost
+column (that is not the top-left cell nor the bottom-left cell), the whole MyMouseAdapter row changes
+color randomly so that no cell of that row stays in the same color.
+(The leftmost gray cell should stay gray.)

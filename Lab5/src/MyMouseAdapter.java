@@ -70,39 +70,107 @@ public class MyMouseAdapter extends MouseAdapter {
 				if ((gridX == -1) || (gridY == -1)) {
 					//Is releasing outside
 					//Do nothing
-				} else {
-					if ((myPanel.mouseDownGridX != gridX) || (myPanel.mouseDownGridY != gridY)) {
+				} 
+				if ((myPanel.mouseDownGridX != gridX) || (myPanel.mouseDownGridY != gridY)) {
 						//Released the mouse button on a different cell where it was pressed
 						//Do nothing
-					} else {
+				}
+				
+				else {
 						//Released the mouse button on the same cell where it was pressed
 						if ((gridX == 0) || (gridY == 0)) {
 							//On the left column and on the top row... do nothing
-						} else {
-							//On the grid other than on the left column and on the top row:
-							Color newColor = null;
+							if (!(gridY == 0) ) {
+								for (int i=1; i < 10; i++) {
+									Color newColor = null;
+									Color toCompareColor = null;
+									
+									switch (generator.nextInt(5)) {
+									case 0:
+										newColor = Color.YELLOW;
+										toCompareColor = newColor;
+										break;
+									case 1:
+										newColor = Color.MAGENTA;
+										toCompareColor = newColor;
+										break;
+									case 2:
+										newColor = Color.BLACK;
+										toCompareColor = newColor;
+										break;
+									case 3:
+										newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
+										toCompareColor = newColor;
+										break;
+									case 4:
+										newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
+										toCompareColor = newColor;
+										break;
+									}
+									if (newColor.equals(toCompareColor)) {
+										System.out.println("Yes, they represent the same color.");
+									}
+									else {
+										System.out.println("Error changing color)");
+									}
+									
+									myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
+									myPanel.repaint();
+								}
+									System.out.println("Anywhere but corner");
+								}
+							}
+//							else if ((gridX > 1 && gridY == 0)) {
+//								for (int i=1; i < MyPanel.TOTAL_COLUMNS; i++) {
+//									System.out.println("Where am I?");
+//								}
+//							}
+					
+						
+							System.out.println("Nothing happens");
+						}
+					
+						else {
+//							On the grid other than on the left column and on the top row:
+							
+								Color newColor = null;
+							Color toCompareColor = null;
+							
 							switch (generator.nextInt(5)) {
 							case 0:
 								newColor = Color.YELLOW;
+								toCompareColor = newColor;
 								break;
 							case 1:
 								newColor = Color.MAGENTA;
+								toCompareColor = newColor;
 								break;
 							case 2:
 								newColor = Color.BLACK;
+								toCompareColor = newColor;
 								break;
 							case 3:
 								newColor = new Color(0x964B00);   //Brown (from http://simple.wikipedia.org/wiki/List_of_colors)
+								toCompareColor = newColor;
 								break;
 							case 4:
 								newColor = new Color(0xB57EDC);   //Lavender (from http://simple.wikipedia.org/wiki/List_of_colors)
+								toCompareColor = newColor;
 								break;
 							}
+							if (newColor.equals(toCompareColor)) {
+								System.out.println("Yes, they represent the same color.");
+							}
+							else {
+								System.out.println("Error changing color)");
+							}
+							
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							myPanel.repaint();
-						}
+							}
+						
 					}
-				}
+				
 			}
 			myPanel.repaint();
 			break;
@@ -113,5 +181,5 @@ public class MyMouseAdapter extends MouseAdapter {
 			//Do nothing
 			break;
 		}
-	}
+	}	
 }
